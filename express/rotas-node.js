@@ -2,15 +2,17 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Página inicial");
+    res.send("<h1>Página inicial</h1>");
+        res.send("<h1>Página inicial222</h1>");
+
 });
 
 app.get("/sobre", (req, res) => {
-    res.send("Página sobre");
+    res.send("<h2>Página sobre</h2>");
 });
 
 app.get("/contato", (req, res) => {
-    res.send("Página de contato");
+    res.send("<p style=\"color: blue;\">Página de contato</p>");
 });
 
 app.listen(3000);
