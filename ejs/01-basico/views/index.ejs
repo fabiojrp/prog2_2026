@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Olá <%= nome %>!</h1>
+
+    <h2>Disciplinas</h2>
+
+    <ul>
+        <% disciplinas.forEach(disciplina => { %>
+
+            <li><%= disciplina %></li>
+
+        <% }) %>
+    </ul>
+
+    <a href="/sobre">Sobre</a>
+
+</body>
+</html>
