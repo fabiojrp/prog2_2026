@@ -1,4 +1,5 @@
 ejs/00-olamundo/node_modules/
 ejs/01-basico/node_modules/
 ejs/02-crud-sem-banco/node_modules/
+ejs/03-crud-com-banco/node_modules/
 express/node_modules/

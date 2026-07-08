@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 
 const PORT = 3000;
+// Permite ler dados de formulários
+app.use(express.urlencoded({ extended: true }));
 
 // Configura o EJS como mecanismo de visualização
 app.set('view engine', 'ejs');
@@ -11,26 +13,30 @@ app.use(express.static('public'));
 
 // Página inicial
 app.get('/', (req, res) => {
+    res.render('index');
+});
 
-    const nome = "Fabio";
+// Página interna
+app.get('/login/:nome', (req, res) => {
 
-    const disciplinas = [
-        "Programação II",
-        "Banco de Dados",
-        "Computação Gráfica"
-    ];
+    const nome = req.params.nome;
 
-    res.render('index', {
-        nome,
-        disciplinas
-    });
+    res.render('logado', { nome });
 
 });
 
-// Página sobre
-app.get('/sobre', (req, res) => {
+app.get('/login', (req, res) => {
 
-    res.render('sobre');
+    const nome = "Zé";
+
+    res.render('logado', { nome });
+
+});
+
+app.post('/form-nome', (req, res) => {
+
+    const nome = req.body.nome
+    res.render('logado', { nome });
 
 });
 

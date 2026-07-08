@@ -5,6 +5,8 @@ const PORT = 3000;
 
 // Configura o EJS como mecanismo de visualização
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 
 //olá mundo
 app.get('/', (req, res) => {

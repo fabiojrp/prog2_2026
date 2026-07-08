@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <h1>Cadastro de Pessoas</h1>
+
+    <form action="/salvar" method="POST">
+
+        <p>
+            Nome:
+            <input type="text" name="nome" required>
+        </p>
+
+        <p>
+            E-mail:
+            <input type="email" name="email" required>
+        </p>
+
+        <button type="submit">
+            Salvar
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/lista">
+        Ver Cadastros
+    </a>
+
+</body>
+</html>

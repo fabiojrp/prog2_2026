@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoas</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1>Cadastro de Pessoas</h1>
+
+        <form @submit.prevent="salvar">
+
+            <div>
+                <label>Nome:</label>
+                <input type="text" v-model="nome">
+            </div>
+
+            <div>
+                <label>E-mail:</label>
+                <input type="email" v-model="email">
+            </div>
+
+            <button type="submit">
+                Salvar
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h2>Listagem</h2>
+
+        <table border="1">
+
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+            </tr>
+
+            <tr v-for="pessoa in pessoas">
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.email }}</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
