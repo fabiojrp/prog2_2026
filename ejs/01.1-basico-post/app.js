@@ -9,23 +9,23 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = 3000;
 
-const nomes = [];
 
 // Página inicial
 app.get('/', (req, res) => {
     res.render('formulario');
 });
 
-// Rota para processar o formulário de cadastro
+const nomes = []; // Array para armazenar os nomes cadastrados
 app.post('/cadastro', (req, res) => {
     const nome = req.body.nome;
     const email = req.body.email;
+    nomes.push({ nome, email }); //adiciona o nome e email ao array de nomes
     res.render('logado', { nome, email });
 });
 
 
 app.get('/lista-nomes', (req, res) => {
-    res.render('nomes', { nomes });
+    res.render('lista-nomes', { nomes });
 });
 
 app.listen(PORT, () => {
