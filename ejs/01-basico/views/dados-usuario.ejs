@@ -6,9 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/form-nome" method="POST">
-        Nome: <input type="text" name="nome">
-        <button type="submit">Enviar</button>
-    </form>
+
+    <h1>Dados do Usuário</h1>
+    <p>Nome: <%= usuario.nome %></p>
+    <p>Idade: <%= usuario.idade %></p>
+    <p>Cidade: <%= usuario.cidade %></p> 
+
 </body>
 </html>

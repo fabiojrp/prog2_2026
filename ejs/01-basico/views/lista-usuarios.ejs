@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <ul>
+        <% for (let i = 0; i < dados.length; i++) {
+            %>
+            <li>
+                <p><strong>Nome:</strong> <%= dados[i].nome %></p>
+                <p><strong>Idade:</strong> <%= dados[i].idade %></p>
+                <p><strong>Cidade:</strong> <%= dados[i].cidade %></p>
+            </li>
+        <% } %>
+    </ul>
+    
+</body>
+</html>
