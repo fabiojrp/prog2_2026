@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
-// Configura o EJS como mecanismo de visualização
 app.set('view engine', 'ejs');
-// Pasta de arquivos estáticos
 app.use(express.static('public'));
+
 // Permite ler dados de formulários
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,8 +23,8 @@ app.post('/cadastro', (req, res) => {
 });
 
 
-app.get('/lista-nomes', (req, res) => {
-    res.render('lista-nomes', { nomes });
+app.get('/lista-usuarios', (req, res) => {
+    res.render('lista-usuarios', { nomes });
 });
 
 app.listen(PORT, () => {
