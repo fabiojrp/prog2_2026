@@ -1,6 +1,7 @@
-ejs/00-olamundo/node_modules/
-ejs/01-basico/node_modules/
-ejs/01.1-basico-post/node_modules/
-ejs/02-crud-sem-banco/node_modules/
-ejs/03-crud-com-banco/node_modules/
-express/node_modules/
+00-basicnode/node_modules/
+01-express/node_modules/
+02-ejs/00-olamundo/node_modules/
+02-ejs/01-basico/node_modules/
+02-ejs/01.1-basico-post/node_modules/
+02-ejs/02-crud-sem-banco/node_modules/
+02-ejs/03-crud-com-banco/node_modules/

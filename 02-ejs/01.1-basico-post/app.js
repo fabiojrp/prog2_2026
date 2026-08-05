@@ -8,7 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = 3000;
 
-
 // Página inicial
 app.get('/', (req, res) => {
     res.render('formulario');
