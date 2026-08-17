@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Filmes</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Cadastro de Filmes</h1>
+
+        <form method="POST" action="/" class="row bg-white p-4 rounded shadow-sm w-50 mx-auto border border-success">
+            <div class="mb-3 col-12">
+                <label class="form-label">Título:</label>
+                <input type="text" class="form-control" name="titulo" required>
+            </div>
+
+            <div class="mb-3 col-4">
+                <label class="form-label">Ano:</label>
+                <input type="text" class="form-control" name="ano" required>
+            </div>
+
+            <div class="mb-3 col-8">
+                <label class="form-label">Estilo:</label>
+                <select class="form-control" name="estilo" required>
+                    <option value="">Selecione o estilo</option>
+                    <option value="acao">Ação</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="romance">Romance</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+        </form>
+
+        <div class="container w-50 p-4 m-5 mx-auto">
+
+
+            <h2 class="text-center mt-5 mb-4">Filmes Cadastrados</h2>
+            <h3>Ação</h3>
+            <ul class="list-group w-50 mx-auto">
+                <% for(let i=0; i<filmes.length; i++) { 
+                        if (filmes[i].estilo==='acao' ) {    
+                %>
+                    <li class="list-group-item">
+                        <strong>Título:</strong> <%= filmes[i].titulo %>, 
+                        <strong>Ano:</strong> <%= filmes[i].ano %>, 
+                        <strong>Estilo:</strong> <%= filmes[i].estilo %>
+                    </li>
+                    <% } %>
+                <% } %>
+            </ul>
+
+            <h3 class="mt-4">Aventura</h3>
+            <ul class="list-group w-50 mx-auto">
+                <% for(let i=0; i<filmes.length; i++) {
+                    if (filmes[i].estilo==='aventura' ) { 
+                %>
+                        <li class="list-group-item">
+                            <strong>Título:</strong> <%= filmes[i].titulo %>, 
+                            <strong>Ano:</strong> <%= filmes[i].ano %>, 
+                            <strong>Estilo:</strong> <%= filmes[i].estilo %>
+                        </li>
+                    <% } %>
+                <% } %>
+            </ul>
+
+            <h3 class="mt-4">Romance</h3>
+            <ul class="list-group w-50 mx-auto">
+                <% for(let i=0; i<filmes.length; i++) { 
+                    if (filmes[i].estilo==='romance' ) { 
+                %>
+                        <li class="list-group-item">
+                            <strong>Título:</strong> <%= filmes[i].titulo %>, 
+                            <strong>Ano:</strong> <%= filmes[i].ano %>, 
+                            <strong>Estilo:</strong> <%= filmes[i].estilo %>
+                        </li>
+                    <% } %>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
