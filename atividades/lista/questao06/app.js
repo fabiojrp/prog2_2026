@@ -6,7 +6,6 @@ disciplina de Programação 2.”
 */
 const express = require('express');
 const app = express();
-const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,4 +25,4 @@ app.post('/calcular', (req, res) => {
   res.render('index', { nome, materia, media });
 });
 
-app.listen(port);
+app.listen(3000);

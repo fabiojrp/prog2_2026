@@ -3,7 +3,6 @@
 // (login), caso digite os valores inválidos
 const express = require('express');
 const app = express();
-const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,4 +23,4 @@ app.post("/efetuarLogin", (req, res)=>{
     }
 });
 
-app.listen(port);
+app.listen(3000);

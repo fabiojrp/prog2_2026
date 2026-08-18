@@ -4,7 +4,6 @@
 // aventura, depois todos os filmes de romance, etc.
 const express = require('express');
 const app = express();
-const port = 3000;
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,4 +19,4 @@ app.post("/", (req, res)=>{
     res.redirect("/");
 });
 
-app.listen(port);
+app.listen(3000);
