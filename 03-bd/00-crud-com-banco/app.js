@@ -1,23 +1,15 @@
 const express = require('express');
-const path = require('path');
-
-const db = require('./database');
-
 const app = express();
-
 app.set('view engine', 'ejs');
-
+const path = require('path');
+const db = require('./database');
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 
 // FORMULÁRIO
-
 app.get('/', (req, res) => {
-
     res.render('index');
-
 });
 
 
@@ -31,11 +23,9 @@ app.post('/salvar', (req, res) => {
         'INSERT INTO pessoas(nome, email) VALUES (?, ?)',
         [nome, email],
         function (erro) {
-
             if (erro) {
                 return res.send('Erro ao salvar.');
             }
-
             res.redirect('/lista');
         }
     );

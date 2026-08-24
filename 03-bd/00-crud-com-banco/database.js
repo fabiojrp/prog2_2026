@@ -9,7 +9,6 @@ const db = new sqlite3.Database('./banco.db', (erro) => {
 });
 
 db.serialize(() => {
-
     db.run(`
         CREATE TABLE IF NOT EXISTS pessoas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
