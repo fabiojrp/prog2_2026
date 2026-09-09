@@ -1,0 +1,55 @@
+const express = require('express');
+const app = express();
+app.set('view engine', 'ejs');
+const path = require('path');
+const db = require('./database');
+app.use(express.urlencoded({ extended: true }));
+
+
+// FORMULÁRIO
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+
+// CADASTRO
+app.post('/salvar', (req, res) => {
+
+    const { nome, email } = req.body;
+
+    db.run(
+        'INSERT INTO pessoas(nome, email) VALUES (?, ?)',
+        [nome, email],
+        function (erro) {
+            if (erro) {
+                return res.send('Erro ao salvar.');
+            }
+            res.redirect('/lista');
+        }
+    );
+
+});
+
+
+// LISTAGEM
+app.get('/lista', (req, res) => {
+
+    db.all(
+        'SELECT * FROM pessoas',
+        [],
+        (erro, pessoas) => {
+
+            if (erro) {
+                return res.send('Erro ao consultar.');
+            }
+
+            res.render('lista', {pessoas});
+
+        }
+    );
+
+});
+
+app.listen(3000, () => {
+    console.log('Servidor executando...');
+});

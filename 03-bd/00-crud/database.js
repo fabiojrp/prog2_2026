@@ -1,4 +1,4 @@
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('../01-crud-organizado/node_modules/sqlite3/lib/sqlite3').verbose();
 
 const db = new sqlite3.Database('./banco.db', (erro) => {
     if (erro) {

@@ -1,19 +1,6 @@
 const express = require('express');
 const app = express();
-app.set('view engine', 'ejs');
-const path = require('path');
-const db = require('./database');
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
-
-// FORMULÁRIO
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-
-// CADASTRO
+const db = require('../bd/database');
 
 app.post('/salvar', (req, res) => {
 
@@ -26,14 +13,10 @@ app.post('/salvar', (req, res) => {
             if (erro) {
                 return res.send('Erro ao salvar.');
             }
-            res.redirect('/lista');
+            res.redirect('/pessoas/lista');
         }
     );
-
 });
-
-
-// LISTAGEM
 
 app.get('/lista', (req, res) => {
 
@@ -47,12 +30,8 @@ app.get('/lista', (req, res) => {
             }
 
             res.render('lista', {pessoas});
-
         }
     );
-
 });
 
-app.listen(3000, () => {
-    console.log('Servidor executando...');
-});
+module.exports = app;

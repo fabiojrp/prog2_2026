@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem</title>
+</head>
+<body>
+
+    <h1>Lista de Pessoas</h1>
+
+    <table border="1">
+
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+        </tr>
+
+        <% pessoas.forEach(pessoa => { %>
+
+            <tr>
+                <td><%= pessoa.id %></td>
+                <td><%= pessoa.nome %></td>
+                <td><%= pessoa.email %></td>
+            </tr>
+
+        <% }) %>
+
+    </table>
+
+    <br>
+
+    <a href="/">
+        Novo Cadastro
+    </a>
+
+</body>
+</html>
