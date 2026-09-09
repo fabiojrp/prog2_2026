@@ -1,0 +1,117 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<main class="container py-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+
+            <div class="d-flex justify-content-between">
+
+                <h4 class="mb-0">
+                    <i class="bi bi-box-seam"></i>
+                    Produtos
+                </h4>
+
+                <a href="/produtos/cadastrar" class="btn btn-light btn-sm">
+                    <i class="bi bi-plus-circle"></i>
+                    Novo produto
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Código</th>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Ações</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <% produtos.forEach(produto => { %>
+
+                            <tr>
+
+                                <td><%= produto.id %></td>
+                                <td><%= produto.codigo %></td>
+                                <td><%= produto.nome %></td>
+                                <td><%= produto.categoria %></td>
+
+                                <td>
+                                    R$
+                                    <%= Number(produto.preco)
+                                        .toFixed(2)
+                                        .replace('.', ',') %>
+                                </td>
+
+                                <td>
+
+                                    <% if (produto.estoque > 10) { %>
+
+                                        <span class="badge text-bg-success">
+                                            <%= produto.estoque %>
+                                        </span>
+
+                                    <% } else if (produto.estoque > 0) { %>
+
+                                        <span class="badge text-bg-warning">
+                                            <%= produto.estoque %>
+                                        </span>
+
+                                    <% } else { %>
+
+                                        <span class="badge text-bg-danger">
+                                            0
+                                        </span>
+
+                                    <% } %>
+
+                                </td>
+
+                                <td>
+
+                                    <button class="btn btn-warning btn-sm">
+                                        <i class="bi bi-pencil"></i>
+                                        Editar
+                                    </button>
+
+                                    <button class="btn btn-danger btn-sm">
+                                        <i class="bi bi-trash"></i>
+                                        Excluir
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        <% }) %>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<%- include('../partials/footer') %>

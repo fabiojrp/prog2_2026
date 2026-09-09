@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+<%- include('partials/menu') %>
+
+<main class="container py-5">
+
+    <div class="bg-white p-5 rounded shadow-sm">
+
+        <h1 class="display-6">
+            <i class="bi bi-shop"></i>
+            Admin E-commerce
+        </h1>
+
+        <p class="lead">
+            Sistema administrativo para gerenciamento de produtos.
+        </p>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <div class="card text-bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-box-seam"></i>
+                            Produtos
+                        </h5>
+                        <p class="card-text">
+                            Cadastre e consulte os produtos disponíveis na loja.
+                        </p>
+                        <a href="/produtos" class="btn btn-light">
+                            Ver produtos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="card text-bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-tags"></i>
+                            Categorias
+                        </h5>
+                        <p class="card-text">
+                            Cadastre e consulte as categorias de produtos.
+                        </p>
+                        <a href="/categorias" class="btn btn-light">
+                            Ver categorias
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,112 @@
+<%- include('../partials/header') %>
+<%- include('../partials/menu') %>
+
+<main class="container py-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="bi bi-box-seam"></i>
+                Cadastro de Produto
+            </h4>
+        </div>
+
+        <div class="card-body">
+
+            <form action="/produtos/cadastrar" method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Nome do produto</label>
+                        <input type="text"
+                            name="nome"
+                            class="form-control"
+                            required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Código</label>
+                        <input type="text"
+                            name="codigo"
+                            class="form-control"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Categoria</label>
+
+                        <select name="categoria"
+                            class="form-select"
+                            required>
+
+                            <option value="">
+                                Selecione uma categoria
+                            </option>
+
+                            <% categorias.forEach(categoria => { %>
+
+                                <option value="<%= categoria.nome %>">
+                                    <%= categoria.nome %>
+                                </option>
+
+                            <% }) %>
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Preço</label>
+
+                        <div class="input-group">
+                            <span class="input-group-text">R$</span>
+
+                            <input type="number"
+                                name="preco"
+                                class="form-control"
+                                step="0.01"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label class="form-label">Estoque</label>
+
+                        <input type="number"
+                            name="estoque"
+                            class="form-control"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Descrição</label>
+
+                    <textarea name="descricao"
+                        class="form-control"
+                        rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i>
+                    Cadastrar
+                </button>
+
+                <a href="/produtos" class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</main>
+
+<%- include('../partials/footer') %>

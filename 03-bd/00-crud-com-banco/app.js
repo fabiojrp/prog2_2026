@@ -40,15 +40,13 @@ app.get('/lista', (req, res) => {
     db.all(
         'SELECT * FROM pessoas',
         [],
-        (erro, registros) => {
+        (erro, pessoas) => {
 
             if (erro) {
                 return res.send('Erro ao consultar.');
             }
 
-            res.render('lista', {
-                pessoas: registros
-            });
+            res.render('lista', {pessoas});
 
         }
     );
