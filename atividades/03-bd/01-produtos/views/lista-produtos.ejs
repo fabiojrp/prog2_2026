@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+  <header class="bg-dark text-white py-3 mb-4">
+    <div class="container">
+      <h1 class="mb-0 text-center">
+        <i class="bi bi-cash-coin"></i>
+        Site de E-Commerce
+      </h1>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container py-5">
+      <h2 class="mb-4 text-center">Produtos cadastrados</h2>
+      <div class="card shadow-sm">
+        <div class="card-body p-0">
+          <table class="table table-striped table-hover align-middle mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i=0; i < produtos.length; i++) { %>
+                <tr>
+                  <td>
+                    <%= produtos[i].nome %>
+                  </td>
+                  <td>R$ <%= produtos[i].valor %>
+                  </td>
+                  <td>
+                    <%= produtos[i].quantidade %>
+                  </td>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-3 mt-4 mt-auto">
+    <div class="container text-center">
+      &copy; 2026 Produtos. Todos os direitos reservados.
+    </div>
+  </footer>
+</body>
+
+</html>
