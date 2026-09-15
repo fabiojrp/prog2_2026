@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express();
+const pessoas = express();
 const db = require('../bd/database');
 
-app.post('/salvar', (req, res) => {
+pessoas.post('/salvar', (req, res) => {
 
     const { nome, email } = req.body;
 
@@ -18,7 +18,7 @@ app.post('/salvar', (req, res) => {
     );
 });
 
-app.get('/lista', (req, res) => {
+pessoas.get('/lista', (req, res) => {
 
     db.all(
         'SELECT * FROM pessoas',
@@ -34,4 +34,4 @@ app.get('/lista', (req, res) => {
     );
 });
 
-module.exports = app;
+module.exports = pessoas;
