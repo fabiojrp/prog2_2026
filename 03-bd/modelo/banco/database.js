@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 
-const db = new sqlite3.Database('./bd/meubanco.db', (erro) => {
+const db = new sqlite3.Database('./banco/meubanco.db', (erro) => {
     if (erro) {
         console.log(erro.message);
     } else {

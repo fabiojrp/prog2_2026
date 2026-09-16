@@ -3,6 +3,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+const db = require('./banco/database.js');
 
 let produtos = [];
 app.get('/', (req, res) => {
