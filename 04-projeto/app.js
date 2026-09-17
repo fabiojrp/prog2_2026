@@ -17,19 +17,19 @@ let produtos = [
     { id: 3, codigo: 'PROD003', nome: 'Teclado Mecânico', categoria: 'Informática', preco: 299.90, estoque: 4 }
 ];
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/admin', (req, res) => {
+    res.render('admin/index');
 });
 
-app.get('/produtos', (req, res) => {
-    res.render('produtos/lista', { produtos });
+app.get('/admin/produtos', (req, res) => {
+    res.render('admin/produtos/lista', { produtos });
 });
 
-app.get('/produtos/cadastrar', (req, res) => {
-    res.render('produtos/cadastro', { categorias });
+app.get('/admin/produtos/cadastrar', (req, res) => {
+    res.render('admin/produtos/cadastro', { categorias });
 });
 
-app.post('/produtos/cadastrar', (req, res) => {
+app.post('/admin/produtos/cadastrar', (req, res) => {
     const novoProduto = {
         id: produtos.length + 1,
         codigo: req.body.codigo,
@@ -40,18 +40,18 @@ app.post('/produtos/cadastrar', (req, res) => {
     };
 
     produtos.push(novoProduto);
-    res.redirect('/produtos');
+    res.redirect('/admin/produtos');
 });
 
-app.get('/categorias', (req, res) => {
-    res.render('categorias/lista', { categorias });
+app.get('/admin/categorias', (req, res) => {
+    res.render('admin/categorias/lista', { categorias });
 });
 
-app.get('/categorias/cadastrar', (req, res) => {
-    res.render('categorias/cadastro');
+app.get('/admin/categorias/cadastrar', (req, res) => {
+    res.render('admin/categorias/cadastro');
 });
 
-app.post('/categorias/cadastrar', (req, res) => {
+app.post('/admin/categorias/cadastrar', (req, res) => {
     const novaCategoria = {
         id: categorias.length + 1,
         nome: req.body.nome,
@@ -59,7 +59,7 @@ app.post('/categorias/cadastrar', (req, res) => {
     };
 
     categorias.push(novaCategoria);
-    res.redirect('/categorias');
+    res.redirect('/admin/categorias');
 });
 
 app.listen(port, () => {

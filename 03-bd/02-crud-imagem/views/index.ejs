@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <h1>Cadastro de Pessoas</h1>
+
+    <form action="/pessoas/salvar" method="POST" enctype="multipart/form-data">
+
+        <p>
+            Nome:
+            <input type="text" name="nome" required>
+        </p>
+
+        <p>
+            E-mail:
+            <input type="email" name="email" required>
+        </p>
+
+        <p>
+            Foto:
+            <input type="file" name="imagem" accept="image/*" required>
+        </p>
+        <button type="submit">
+            Salvar
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/pessoas/lista">
+        Ver Cadastros
+    </a>
+
+</body>
+</html>
