@@ -3,7 +3,7 @@ const appAdmin = express();
 const db = require('../banco/database');
 const upload = require('../util/imagens');
 
-appAdmin.get('', (req, res) => {
+appAdmin.get('/', (req, res) => {
     res.render('admin/index-admin');
 });
 
@@ -47,6 +47,7 @@ appAdmin.post('/produtos/cadastrar', (req, res) => {
         function (erro) {
             if (erro) {
                 console.log(erro.message);
+                return res.send('Erro ao cadastrar produto.');
             }
             res.redirect('/admin/produtos');
         }
@@ -81,6 +82,7 @@ appAdmin.post('/categorias/cadastrar', (req, res) => {
         function (erro) {
             if (erro) {
                 console.log(erro.message);
+                return res.send('Erro ao cadastrar categoria.');
             }
             res.redirect('/admin/categorias');
         }
