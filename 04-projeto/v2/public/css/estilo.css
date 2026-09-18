@@ -1,0 +1,15 @@
+body {
+    min-height: 100vh;
+}
+
+.card {
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.table {
+    margin-bottom: 0;
+}
