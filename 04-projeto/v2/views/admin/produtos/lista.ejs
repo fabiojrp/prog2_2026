@@ -25,6 +25,7 @@
                             <th>Categoria</th>
                             <th>Valor</th>
                             <th>Estoque</th>
+                            <th>Imagem</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -54,6 +55,13 @@
                                             0
                                         </span>
                                     <% } %>
+                                </td>
+                                <td>
+                                    <a href="/uploads/<%= produto.imagem %>" 
+                                        onclick="window.open( this.href, 'imagem', 'width=200,height=200,resizable=no' ); return false;"
+                                        target="_blank">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
                                 </td>
                                 <td>
                                     <button class="btn btn-warning btn-sm">

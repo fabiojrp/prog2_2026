@@ -35,15 +35,16 @@ appAdmin.get('/produtos/cadastrar', (req, res) => {
     );
 });
 
-appAdmin.post('/produtos/cadastrar', (req, res) => {
+appAdmin.post('/produtos/cadastrar', upload.single('imagem'), (req, res) => {
     const nome = req.body.nome;
     const categoria = req.body.categoria;
     const valor = parseFloat(req.body.valor);
     const estoque = parseInt(req.body.estoque);
+    const imagem = req.file.filename; // Obtém o nome do arquivo enviado
 
     db.run(
-        `INSERT INTO produtos (nome, categoria, valor, estoque) VALUES (?, ?, ?, ?)`,
-        [nome, categoria, valor, estoque],
+        `INSERT INTO produtos (nome, categoria, valor, estoque, imagem) VALUES (?, ?, ?, ?, ?)`,
+        [nome, categoria, valor, estoque, imagem],
         function (erro) {
             if (erro) {
                 console.log(erro.message);

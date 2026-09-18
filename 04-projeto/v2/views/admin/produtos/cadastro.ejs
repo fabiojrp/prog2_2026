@@ -10,7 +10,7 @@
             </h4>
         </div>
         <div class="card-body">
-            <form action="/admin/produtos/cadastrar" method="POST">
+            <form action="/admin/produtos/cadastrar" method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <label class="form-label">Nome do produto</label>
@@ -31,16 +31,20 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Valor</label>
                         <div class="input-group">
                             <span class="input-group-text">R$</span>
                             <input type="number" name="valor" class="form-control" step="0.01" required>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Estoque</label>
                         <input type="number" name="estoque" class="form-control" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Imagem</label>
+                        <input type="file" name="imagem" class="form-control" accept="image/*" required>
                     </div>
                 </div>
                 <div class="mb-3">

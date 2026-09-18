@@ -22,7 +22,8 @@ db.serialize(() => {
             nome TEXT NOT NULL,
             categoria TEXT,
             valor FLOAT,
-            estoque INTEGER DEFAULT 0
+            estoque INTEGER DEFAULT 0,
+            imagem TEXT
         );
     `);
 
