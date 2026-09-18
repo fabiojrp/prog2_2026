@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página inicial do site!</h1>
+    <h2>Filtro de produtos por categoria</h2>
+    <form action="/" method="get">
+        <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <select name="categoria" class="form-select">
+                <option value="">Todas as categorias</option>
+                <% for (let i = 0; i < categorias.length; i++) { %>
+                    <option value="<%= categorias[i].nome %>">
+                        <%= categorias[i].nome %>
+                    </option>
+                <% } %>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Filtrar
+        </button>
+    </form>
+
+    <h2>Produtos</h2>
+    <div class="row">
+        <% produtos.forEach(produto => { %>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= produto.nome %></h5>
+                        <p class="card-text"><%= produto.descricao %></p>
+                        <p class="card-text">Categoria: <%= produto.categoria %></p>
+                        <p class="card-text">Valor: R$ <%= Number(produto.valor).toFixed(2).replace('.', ',') %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
