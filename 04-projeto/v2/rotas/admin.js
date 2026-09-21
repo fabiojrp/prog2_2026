@@ -3,8 +3,17 @@ const appAdmin = express();
 const db = require('../banco/database');
 const upload = require('../util/imagens');
 
-appAdmin.get('/', (req, res) => {
+appAdmin.get('/index', (req, res) => {
     res.render('admin/index-admin');
+});
+
+appAdmin.get('/', (req, res) => {
+    res.render('admin/login');
+});
+
+appAdmin.post('/login', (req, res) => {
+    //algoritmo de autenticação do usuário
+    res.redirect('/admin/index');
 });
 
 appAdmin.get('/produtos', (req, res) => {

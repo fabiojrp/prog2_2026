@@ -10,8 +10,8 @@ app.get('/', (req, res) => {
 });
 
 //importa as rotas admin
-const rotasAdmin = require('./rotas/admin');
-app.use('/admin', rotasAdmin);
+const appAdmin = require('./rotas/admin');
+app.use('/admin', appAdmin);
 
 
 app.listen(port, () => {
