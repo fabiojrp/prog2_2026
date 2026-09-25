@@ -3,6 +3,9 @@ const appAdmin = express();
 const db = require('../banco/database');
 const upload = require('../util/imagens');
 
+
+//================= INDEX/LOGIN =====================
+
 appAdmin.get('/index', (req, res) => {
     res.render('admin/index-admin');
 });
@@ -16,6 +19,60 @@ appAdmin.post('/login', (req, res) => {
     res.redirect('/admin/index');
 });
 
+
+//================= CATEGORIAS =====================
+
+appAdmin.get('/categorias', (req, res) => {
+    db.all(
+        'SELECT * FROM categorias', 
+        [], 
+        function (erro, categorias) {
+            if (erro) {
+                console.log(erro.message);
+                return res.send('Erro ao consultar categorias.');
+            }
+            res.render('admin/categorias/lista', { categorias });
+        }
+    );
+});
+
+appAdmin.get('/categorias/cadastrar', (req, res) => {
+    res.render('admin/categorias/cadastro');
+});
+
+appAdmin.post('/categorias/cadastrar', (req, res) => {
+    const nome = req.body.nome;
+    const descricao = req.body.descricao;
+
+    db.run(
+        `INSERT INTO categorias (nome, descricao) VALUES (?, ?)`,
+        [nome, descricao],
+        function (erro) {
+            if (erro) {
+                console.log(erro.message);
+                return res.send('Erro ao cadastrar categoria.');
+            }
+            res.redirect('/admin/categorias');
+        }
+    );
+});
+
+appAdmin.get('/categorias/excluir/:id', (req, res) => {
+    const id = req.params.id;
+    db.run(
+        'DELETE FROM categorias WHERE id = ?',
+        [id],
+        function (erro) {
+            if (erro) {
+                console.log(erro.message);
+                return res.send('Erro ao excluir categoria.');
+            }
+            res.redirect('/admin/categorias');
+        }
+    );
+});
+
+//================= PRODUTOS =====================
 appAdmin.get('/produtos', (req, res) => {
     db.all(
         'SELECT * FROM produtos', 
@@ -64,37 +121,17 @@ appAdmin.post('/produtos/cadastrar', upload.single('imagem'), (req, res) => {
     );
 });
 
-appAdmin.get('/categorias', (req, res) => {
-    db.all(
-        'SELECT * FROM categorias', 
-        [], 
-        function (erro, categorias) {
-            if (erro) {
-                console.log(erro.message);
-                return res.send('Erro ao consultar categorias.');
-            }
-            res.render('admin/categorias/lista', { categorias });
-        }
-    );
-});
-
-appAdmin.get('/categorias/cadastrar', (req, res) => {
-    res.render('admin/categorias/cadastro');
-});
-
-appAdmin.post('/categorias/cadastrar', (req, res) => {
-    const nome = req.body.nome;
-    const descricao = req.body.descricao;
-
+appAdmin.get('/produtos/excluir/:id', (req, res) => {
+    const id = req.params.id;
     db.run(
-        `INSERT INTO categorias (nome, descricao) VALUES (?, ?)`,
-        [nome, descricao],
+        'DELETE FROM produtos WHERE id = ?',
+        [id],
         function (erro) {
             if (erro) {
                 console.log(erro.message);
-                return res.send('Erro ao cadastrar categoria.');
+                return res.send('Erro ao excluir produto.');
             }
-            res.redirect('/admin/categorias');
+            res.redirect('/admin/produtos');
         }
     );
 });
