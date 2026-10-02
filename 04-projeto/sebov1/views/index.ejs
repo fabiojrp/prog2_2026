@@ -30,10 +30,14 @@
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav me-auto ms-lg-4">
-          <li class="nav-item"><a class="nav-link" href="#destaques">Destaques</a></li>
-          <li class="nav-item"><a class="nav-link" href="#romance">Romance</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ficcao-cientifica">Ficção científica</a></li>
-          <li class="nav-item"><a class="nav-link" href="#policial">Policial</a></li>
+          <% 
+            categorias.forEach(categoria => {
+          %>              
+              <li class="nav-item"><a class="nav-link" href="#<%= categoria.nome %>"><%= categoria.nome %></a></li>
+          <%
+            });  
+          %>
+          
         </ul>
 
         <div class="d-flex align-items-center gap-3">

@@ -5,9 +5,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
+const appIndex = require('./rotas/rotas-index');
+app.use('/', appIndex);
 
 //importa as rotas admin
 const appAdmin = require('./rotas/admin');
