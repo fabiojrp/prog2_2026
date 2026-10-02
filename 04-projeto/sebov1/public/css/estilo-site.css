@@ -1,0 +1,31 @@
+ /* CSS puro: apenas cores e o básico. O resto é Bootstrap. */
+    :root {
+      --sebo-verde: #1F4E4A;
+      --sebo-verde-escuro: #163836;
+      --sebo-ocre: #D9A441;
+      --sebo-fundo: #F4F6F3;
+      --sebo-texto: #23302F;
+    }
+    body { background: var(--sebo-fundo); color: var(--sebo-texto); }
+    h1, h2, h3, h4, h5, .navbar-brand { font-family: "Libre Baskerville", Georgia, serif; }
+
+    .navbar-sebo { background: var(--sebo-verde); }
+    .navbar-sebo .nav-link, .navbar-sebo .navbar-brand { color: #fff; }
+    .navbar-sebo .nav-link:hover { color: var(--sebo-ocre); }
+    .navbar-sebo .badge-carrinho { background: var(--sebo-ocre); color: var(--sebo-verde-escuro); }
+
+    .titulo-secao { border-bottom: 3px solid var(--sebo-ocre); display: inline-block; padding-bottom: .25rem; }
+    .link-secao { color: var(--sebo-verde); font-weight: 600; text-decoration: none; }
+    .link-secao:hover { color: var(--sebo-verde-escuro); text-decoration: underline; }
+
+    .card-livro { border: 0; box-shadow: 0 1px 4px rgba(0, 0, 0, .12); }
+    .card-livro img { aspect-ratio: 2 / 3; object-fit: cover; }
+    .card-livro .autor { color: #5b6b69; font-size: .9rem; }
+    .card-livro .editora { color: #7a8987; font-size: .8rem; }
+    .preco { color: var(--sebo-verde); font-weight: 700; font-size: 1.15rem; }
+
+    .btn-sebo { background: var(--sebo-verde); color: #fff; border: 0; }
+    .btn-sebo:hover { background: var(--sebo-verde-escuro); color: #fff; }
+
+    .destaques { background: #fff; border-top: 4px solid var(--sebo-ocre); }
+    footer { background: var(--sebo-verde-escuro); color: #cfdad8; }
