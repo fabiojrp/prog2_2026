@@ -1,4 +1,4 @@
- /* CSS puro: apenas cores e o básico. O resto é Bootstrap. */
+/* CSS puro: apenas cores e o básico. O resto é Bootstrap. */
     :root {
       --sebo-verde: #1F4E4A;
       --sebo-verde-escuro: #163836;
@@ -18,14 +18,28 @@
     .link-secao { color: var(--sebo-verde); font-weight: 600; text-decoration: none; }
     .link-secao:hover { color: var(--sebo-verde-escuro); text-decoration: underline; }
 
+    /* Cards compactos das categorias */
     .card-livro { border: 0; box-shadow: 0 1px 4px rgba(0, 0, 0, .12); }
     .card-livro img { aspect-ratio: 2 / 3; object-fit: cover; }
-    .card-livro .autor { color: #5b6b69; font-size: .9rem; }
-    .card-livro .editora { color: #7a8987; font-size: .8rem; }
-    .preco { color: var(--sebo-verde); font-weight: 700; font-size: 1.15rem; }
+    .titulo-livro { font-size: .85rem; line-height: 1.25; margin-bottom: .25rem; }
+    .card-livro .autor { color: #5b6b69; font-size: .78rem; }
+    .card-livro .editora { color: #7a8987; font-size: .72rem; }
+    .preco { color: var(--sebo-verde); font-weight: 700; font-size: .95rem; }
 
     .btn-sebo { background: var(--sebo-verde); color: #fff; border: 0; }
     .btn-sebo:hover { background: var(--sebo-verde-escuro); color: #fff; }
+    .btn-ocre { background: var(--sebo-ocre); color: var(--sebo-verde-escuro); border: 0; font-weight: 600; }
+    .btn-ocre:hover { background: #c4912f; color: var(--sebo-verde-escuro); }
 
-    .destaques { background: #fff; border-top: 4px solid var(--sebo-ocre); }
+    /* Destaques: fundo verde e cards horizontais */
+    .destaques { background: #FBF3DF; border-top: 4px solid var(--sebo-verde-escuro); border-bottom: 4px solid var(--sebo-verde); }
+    .destaques .titulo-secao { border-color: var(--sebo-verde); }
+    .card-destaque { border: 1px solid #ecd9a8; border-radius: .5rem; background: #fff; position: relative; overflow: hidden; }
+    .card-destaque img { object-fit: cover; min-height: 130px; }
+    .selo-destaque { position: absolute; top: .25rem; right: 0; background: var(--sebo-verde); color: var(--sebo-ocre);
+                      font-size: .65rem; font-weight: 700; padding: .1rem .5rem; border-radius: .25rem 0 0 .25rem; }
+    .titulo-destaque { font-size: .9rem; line-height: 1.25; margin: 1rem 0 .25rem; }
+    .editora-destaque { font-size: .75rem; margin-bottom: .5rem; }
+    .preco-destaque { color: var(--sebo-verde); font-weight: 700; font-size: 1.05rem; }
+
     footer { background: var(--sebo-verde-escuro); color: #cfdad8; }
