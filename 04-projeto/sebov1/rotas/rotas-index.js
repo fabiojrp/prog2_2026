@@ -6,7 +6,7 @@ const upload = require('../util/imagens');
 
 appIndex.get('/', (req, res) => {
     db.all(
-        'SELECT * FROM livros where categoria="Drama" LIMIT 6',
+        'SELECT * FROM livros',
         [],
         function (erro, livros) {
             if (erro) {

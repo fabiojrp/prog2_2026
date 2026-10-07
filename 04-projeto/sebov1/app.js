@@ -9,7 +9,7 @@ const appIndex = require('./rotas/rotas-index');
 app.use('/', appIndex);
 
 //importa as rotas admin
-const appAdmin = require('./rotas/admin');
+const appAdmin = require('./rotas/rotas-admin');
 app.use('/admin', appAdmin);
 
 
