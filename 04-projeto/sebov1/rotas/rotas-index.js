@@ -1,10 +1,9 @@
 const express = require('express');
 const appIndex = express();
 const db = require('../banco/database');
-const upload = require('../util/imagens');
-
 
 appIndex.get('/', (req, res) => {
+    
     db.all(
         'SELECT * FROM livros',
         [],

@@ -13,7 +13,8 @@ db.serialize(() => {
         CREATE TABLE IF NOT EXISTS pessoas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT NOT NULL,
-            email TEXT NOT NULL
+            email TEXT NOT NULL,
+            data_nascimento TEXT NOT NULL
         )
     `);
 

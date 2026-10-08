@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Listagem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+    <h2>Buscar Pessoa</h2>
 
-    <h1>Lista de Pessoas</h1>
+    <form action="/pessoas/buscar" method="POST">
+        <p>
+            Intervalo de Nascimento:
+            <input type="date" name="data_inicio" required>
+            <input type="date" name="data_fim" required>
+        </p>
 
+        <button type="submit">
+            Buscar
+        </button>
+    </form>
+    <br><br>
+
+    <h2>Resultado da Busca</h2>
+    <br>
     <table border="1">
 
         <tr>
@@ -29,16 +44,6 @@
         <% }) %>
 
     </table>
-
-    <br>
-
-    <a href="/">
-        Novo Cadastro
-    </a>
-    <br>
-    <a href="/pessoas/buscar">
-        Buscar Pessoas
-    </a>
-
+    
 </body>
 </html>

@@ -1,24 +1,24 @@
 const express = require('express');
-const pessoas = express();
+const pessoasApp = express();
 const db = require('../bd/database');
 
-pessoas.post('/salvar', (req, res) => {
+pessoasApp.post('/salvar', (req, res) => {
 
-    const { nome, email } = req.body;
+    const { nome, email, data_nascimento } = req.body;
 
     db.run(
-        'INSERT INTO pessoas(nome, email) VALUES (?, ?)',
-        [nome, email],
+        'INSERT INTO pessoas(nome, email, data_nascimento) VALUES (?, ?, ?)',
+        [nome, email, data_nascimento],
         function (erro) {
             if (erro) {
                 return res.send('Erro ao salvar.');
             }
-            res.redirect('/pessoas/lista');
+            res.redirect('/pessoas/listar');
         }
     );
 });
 
-pessoas.get('/lista', (req, res) => {
+pessoasApp.get('/listar', (req, res) => {
 
     db.all(
         'SELECT * FROM pessoas',
@@ -28,10 +28,36 @@ pessoas.get('/lista', (req, res) => {
             if (erro) {
                 return res.send('Erro ao consultar.');
             }
-
-            res.render('lista', {pessoas});
+            res.render('lista.ejs', {pessoas});
         }
     );
 });
 
-module.exports = pessoas;
+pessoasApp.get('/buscar', (req, res) => {
+    db.all(
+        'SELECT * FROM pessoas WHERE data_nascimento BETWEEN ? AND ?',
+        [data_inicio, data_fim],
+        (erro, pessoas) => {
+            if (erro) {
+                return res.send('Erro ao consultar.');
+            }
+            res.render('busca.ejs', { pessoas });
+        }
+    );});
+
+pessoasApp.post('/buscar', (req, res) => {
+    const { data_inicio, data_fim } = req.body;
+
+    db.all(
+        'SELECT * FROM pessoas WHERE data_nascimento BETWEEN ? AND ?',
+        [data_inicio, data_fim],
+        (erro, pessoas) => {
+            if (erro) {
+                return res.send('Erro ao consultar.');
+            }
+            res.render('busca.ejs', { pessoas });
+        }
+    );
+});
+
+module.exports = pessoasApp;
