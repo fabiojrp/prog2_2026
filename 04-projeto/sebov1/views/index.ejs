@@ -30,13 +30,10 @@
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav me-auto ms-lg-4">
-          <% 
-            categorias.forEach(categoria => {
-          %>              
-              <li class="nav-item"><a class="nav-link" href="#<%= categoria.nome %>"><%= categoria.nome %></a></li>
-          <%
-            });  
-          %>  
+          <li class="nav-item"><a class="nav-link" href="#destaques">Destaques</a></li>
+          <li class="nav-item"><a class="nav-link" href="#romance">Romance</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ficcao-cientifica">Ficção científica</a></li>
+          <li class="nav-item"><a class="nav-link" href="#policial">Policial</a></li>
         </ul>
 
         <div class="d-flex align-items-center gap-3">
@@ -59,24 +56,20 @@
       <div class="container">
         <h2 class="titulo-secao mb-4">Destaques</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3">
-          <%
-            livros.forEach(function(livro) {
-              if (livro.destaque === 1) {
-          %>
           <div class="col">
             <article class="card card-destaque h-100">
               <span class="selo-destaque">Destaque</span>
               <div class="row g-0 h-100">
                 <div class="col-5">
-                  <img src="/uploads/<%= livro.imagem%>" class="w-100 h-100 rounded-start" alt="Capa de <%= livro.titulo %>">
+                  <img src="https://placehold.co/300x450/1F4E4A/FFFFFF?text=Dom+Casmurro" class="w-100 h-100 rounded-start" alt="Capa de Dom Casmurro">
                 </div>
                 <div class="col-7">
                   <div class="card-body p-2 d-flex flex-column h-100">
-                    <h3 class="titulo-destaque"><%= livro.titulo %></h3>
-                    <p class="mb-0 small fw-semibold"><%= livro.autor %></p>
-                    <p class="text-secondary editora-destaque"><%= livro.editora %></p>
+                    <h3 class="titulo-destaque">Dom Casmurro</h3>
+                    <p class="mb-0 small fw-semibold">Machado de Assis</p>
+                    <p class="text-secondary editora-destaque">Editora Ática</p>
                     <div class="mt-auto">
-                      <p class="preco-destaque mb-1">R$ <%= livro.valor.toFixed(2) %></p>
+                      <p class="preco-destaque mb-1">R$ 18,90</p>
                       <button class="btn btn-ocre btn-sm w-100"><i class="bi bi-cart-plus me-1"></i>Adicionar</button>
                     </div>
                   </div>
@@ -84,10 +77,69 @@
               </div>
             </article>
           </div>
-          <%
-              }
-            });
-          %>
+          <div class="col">
+            <article class="card card-destaque h-100">
+              <span class="selo-destaque">Destaque</span>
+              <div class="row g-0 h-100">
+                <div class="col-5">
+                  <img src="https://placehold.co/300x450/1F4E4A/FFFFFF?text=1984" class="w-100 h-100 rounded-start" alt="Capa de 1984">
+                </div>
+                <div class="col-7">
+                  <div class="card-body p-2 d-flex flex-column h-100">
+                    <h3 class="titulo-destaque">1984</h3>
+                    <p class="mb-0 small fw-semibold">George Orwell</p>
+                    <p class="text-secondary editora-destaque">Companhia das Letras</p>
+                    <div class="mt-auto">
+                      <p class="preco-destaque mb-1">R$ 29,90</p>
+                      <button class="btn btn-ocre btn-sm w-100"><i class="bi bi-cart-plus me-1"></i>Adicionar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card card-destaque h-100">
+              <span class="selo-destaque">Destaque</span>
+              <div class="row g-0 h-100">
+                <div class="col-5">
+                  <img src="https://placehold.co/300x450/1F4E4A/FFFFFF?text=O+Nome+da+Rosa" class="w-100 h-100 rounded-start" alt="Capa de O Nome da Rosa">
+                </div>
+                <div class="col-7">
+                  <div class="card-body p-2 d-flex flex-column h-100">
+                    <h3 class="titulo-destaque">O Nome da Rosa</h3>
+                    <p class="mb-0 small fw-semibold">Umberto Eco</p>
+                    <p class="text-secondary editora-destaque">Record</p>
+                    <div class="mt-auto">
+                      <p class="preco-destaque mb-1">R$ 34,00</p>
+                      <button class="btn btn-ocre btn-sm w-100"><i class="bi bi-cart-plus me-1"></i>Adicionar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card card-destaque h-100">
+              <span class="selo-destaque">Destaque</span>
+              <div class="row g-0 h-100">
+                <div class="col-5">
+                  <img src="https://placehold.co/300x450/1F4E4A/FFFFFF?text=Capit%C3%A3es+da+Areia" class="w-100 h-100 rounded-start" alt="Capa de Capitães da Areia">
+                </div>
+                <div class="col-7">
+                  <div class="card-body p-2 d-flex flex-column h-100">
+                    <h3 class="titulo-destaque">Capitães da Areia</h3>
+                    <p class="mb-0 small fw-semibold">Jorge Amado</p>
+                    <p class="text-secondary editora-destaque">Companhia das Letras</p>
+                    <div class="mt-auto">
+                      <p class="preco-destaque mb-1">R$ 24,50</p>
+                      <button class="btn btn-ocre btn-sm w-100"><i class="bi bi-cart-plus me-1"></i>Adicionar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -100,27 +152,90 @@
           <a href="categoria.html?genero=drama" class="link-secao">Ver todos</a>
         </div>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-6 g-3">
-        <%
-        livros.forEach(function(livro) {
-          if (livro.categoria === 'Drama') {                  
-        %>
           <div class="col">
             <div class="card card-livro h-100">
-              <img src="/uploads/<%= livro.imagem %>" class="card-img-top" alt="Capa de <%= livro.titulo %>">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Orgulho+e+Preconceito" class="card-img-top" alt="Capa de Orgulho e Preconceito">
               <div class="card-body p-2">
-                <h3 class="titulo-livro"><%= livro.titulo %></h3>
-                <p class="autor mb-0"><%= livro.autor %></p>
-                <p class="editora mb-0"><%= livro.editora %></p>
+                <h3 class="titulo-livro">Orgulho e Preconceito</h3>
+                <p class="autor mb-0">Jane Austen</p>
+                <p class="editora mb-0">Martin Claret</p>
               </div>
               <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
-                <span class="preco">R$ <%= livro.valor.toFixed(2) %></span>
-                <button class="btn btn-sebo btn-sm" aria-label="Adicionar <%= livro.titulo %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+                <span class="preco">R$ 22,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Orgulho e Preconceito ao carrinho"><i class="bi bi-cart-plus"></i></button>
               </div>
             </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=A+Moreninha" class="card-img-top" alt="Capa de A Moreninha">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">A Moreninha</h3>
+                <p class="autor mb-0">Joaquim Manuel de Macedo</p>
+                <p class="editora mb-0">Editora Ática</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 14,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar A Moreninha ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
             </div>
-            <%
-          }});
-          %>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Senhora" class="card-img-top" alt="Capa de Senhora">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Senhora</h3>
+                <p class="autor mb-0">José de Alencar</p>
+                <p class="editora mb-0">Editora Ática</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 16,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Senhora ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=O+Amor+nos+Tempos+do+C%C3%B3lera" class="card-img-top" alt="Capa de O Amor nos Tempos do Cólera">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">O Amor nos Tempos do Cólera</h3>
+                <p class="autor mb-0">Gabriel García Márquez</p>
+                <p class="editora mb-0">Record</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 32,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar O Amor nos Tempos do Cólera ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Jane+Eyre" class="card-img-top" alt="Capa de Jane Eyre">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Jane Eyre</h3>
+                <p class="autor mb-0">Charlotte Brontë</p>
+                <p class="editora mb-0">Zahar</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 30,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Jane Eyre ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Dona+Flor+e+Seus+Dois+Maridos" class="card-img-top" alt="Capa de Dona Flor e Seus Dois Maridos">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Dona Flor e Seus Dois Maridos</h3>
+                <p class="autor mb-0">Jorge Amado</p>
+                <p class="editora mb-0">Companhia das Letras</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 26,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Dona Flor e Seus Dois Maridos ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -133,28 +248,90 @@
           <a href="categoria.html?genero=ficcao-cientifica" class="link-secao">Ver todos</a>
         </div>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-6 g-3">
-          <%
-            livros.forEach(function(livro) {
-              if (livro.categoria === 'Ficção') {
-          %>
           <div class="col">
             <div class="card card-livro h-100">
-              <img src="/uploads/<%= livro.imagem %>" class="card-img-top" alt="Capa de <%= livro.titulo %>">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=Funda%C3%A7%C3%A3o" class="card-img-top" alt="Capa de Fundação">
               <div class="card-body p-2">
-                <h3 class="titulo-livro"><%= livro.titulo %></h3>
-                <p class="autor mb-0"><%= livro.autor %></p>
-                <p class="editora mb-0"><%= livro.editora %></p>
+                <h3 class="titulo-livro">Fundação</h3>
+                <p class="autor mb-0">Isaac Asimov</p>
+                <p class="editora mb-0">Editora Aleph</p>
               </div>
               <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
-                <span class="preco">R$ <%= livro.valor.toFixed(2) %></span>
-                <button class="btn btn-sebo btn-sm" aria-label="Adicionar <%= livro.titulo %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+                <span class="preco">R$ 38,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Fundação ao carrinho"><i class="bi bi-cart-plus"></i></button>
               </div>
             </div>
           </div>
-          <%
-              }
-            });
-          %>        
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=Neuromancer" class="card-img-top" alt="Capa de Neuromancer">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Neuromancer</h3>
+                <p class="autor mb-0">William Gibson</p>
+                <p class="editora mb-0">Editora Aleph</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 36,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Neuromancer ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=Duna" class="card-img-top" alt="Capa de Duna">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Duna</h3>
+                <p class="autor mb-0">Frank Herbert</p>
+                <p class="editora mb-0">Editora Aleph</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 45,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Duna ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=O+Guia+do+Mochileiro+das+Gal%C3%A1xias" class="card-img-top" alt="Capa de O Guia do Mochileiro das Galáxias">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">O Guia do Mochileiro das Galáxias</h3>
+                <p class="autor mb-0">Douglas Adams</p>
+                <p class="editora mb-0">Arqueiro</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 27,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar O Guia do Mochileiro das Galáxias ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=Androides+Sonham+com+Ovelhas+El%C3%A9tricas%3F" class="card-img-top" alt="Capa de Androides Sonham com Ovelhas Elétricas?">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Androides Sonham com Ovelhas Elétricas?</h3>
+                <p class="autor mb-0">Philip K. Dick</p>
+                <p class="editora mb-0">Editora Aleph</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 34,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Androides Sonham com Ovelhas Elétricas? ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/163836/FFFFFF?text=Fahrenheit+451" class="card-img-top" alt="Capa de Fahrenheit 451">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Fahrenheit 451</h3>
+                <p class="autor mb-0">Ray Bradbury</p>
+                <p class="editora mb-0">Biblioteca Azul</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 29,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Fahrenheit 451 ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -167,28 +344,90 @@
           <a href="categoria.html?genero=romance" class="link-secao">Ver todos</a>
         </div>
         <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-6 g-3">
-          <%
-            livros.forEach(function(livro) {
-              if (livro.categoria === 'Romance') {
-          %>
           <div class="col">
             <div class="card card-livro h-100">
-              <img src="/uploads/<%= livro.imagem %>" class="card-img-top" alt="Capa de <%= livro.titulo %>">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=O+Assassinato+de+Roger+Ackroyd" class="card-img-top" alt="Capa de O Assassinato de Roger Ackroyd">
               <div class="card-body p-2">
-                <h3 class="titulo-livro"><%= livro.titulo %></h3>
-                <p class="autor mb-0"><%= livro.autor %></p>
-                <p class="editora mb-0"><%= livro.editora %></p>
+                <h3 class="titulo-livro">O Assassinato de Roger Ackroyd</h3>
+                <p class="autor mb-0">Agatha Christie</p>
+                <p class="editora mb-0">Editora Globo</p>
               </div>
               <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
-                <span class="preco">R$ <%= livro.valor.toFixed(2) %></span>
-                <button class="btn btn-sebo btn-sm" aria-label="Adicionar <%= encodeURIComponent(livro.titulo) %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+                <span class="preco">R$ 21,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar O Assassinato de Roger Ackroyd ao carrinho"><i class="bi bi-cart-plus"></i></button>
               </div>
             </div>
           </div>
-          <%
-              }
-            });
-          %>          
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=O+C%C3%A3o+dos+Baskervilles" class="card-img-top" alt="Capa de O Cão dos Baskervilles">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">O Cão dos Baskervilles</h3>
+                <p class="autor mb-0">Arthur Conan Doyle</p>
+                <p class="editora mb-0">Zahar</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 25,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar O Cão dos Baskervilles ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Os+Homens+que+N%C3%A3o+Amavam+as+Mulheres" class="card-img-top" alt="Capa de Os Homens que Não Amavam as Mulheres">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Os Homens que Não Amavam as Mulheres</h3>
+                <p class="autor mb-0">Stieg Larsson</p>
+                <p class="editora mb-0">Companhia das Letras</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 28,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Os Homens que Não Amavam as Mulheres ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=O+Sil%C3%AAncio+dos+Inocentes" class="card-img-top" alt="Capa de O Silêncio dos Inocentes">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">O Silêncio dos Inocentes</h3>
+                <p class="autor mb-0">Thomas Harris</p>
+                <p class="editora mb-0">Record</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 26,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar O Silêncio dos Inocentes ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Assassinato+no+Expresso+do+Oriente" class="card-img-top" alt="Capa de Assassinato no Expresso do Oriente">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Assassinato no Expresso do Oriente</h3>
+                <p class="autor mb-0">Agatha Christie</p>
+                <p class="editora mb-0">Editora Globo</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 23,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Assassinato no Expresso do Oriente ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-livro h-100">
+              <img src="https://placehold.co/300x450/D9A441/23302F?text=Garota+Exemplar" class="card-img-top" alt="Capa de Garota Exemplar">
+              <div class="card-body p-2">
+                <h3 class="titulo-livro">Garota Exemplar</h3>
+                <p class="autor mb-0">Gillian Flynn</p>
+                <p class="editora mb-0">Intrínseca</p>
+              </div>
+              <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+                <span class="preco">R$ 27,00</span>
+                <button class="btn btn-sebo btn-sm" aria-label="Adicionar Garota Exemplar ao carrinho"><i class="bi bi-cart-plus"></i></button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
