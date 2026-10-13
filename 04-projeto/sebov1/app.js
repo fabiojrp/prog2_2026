@@ -5,13 +5,16 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-const appIndex = require('./rotas/rotas-index');
-app.use('/', appIndex);
+// const appIndex = require('./rotas/rotas-index');
+// app.use('/', appIndex);
 
 //importa as rotas admin
 const appAdmin = require('./rotas/rotas-admin');
 app.use('/admin', appAdmin);
 
+app.get('/', (req, res) => {
+    res.render('pagina-produtos');
+});
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
