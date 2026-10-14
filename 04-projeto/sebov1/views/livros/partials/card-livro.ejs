@@ -1,0 +1,17 @@
+<!-- Card compacto de livro (espera a variável "livro"); a capa e o título levam à página de detalhe -->
+<div class="col">
+  <div class="card card-livro h-100">
+    <a href="/livro/<%= livro.id %>">
+      <img src="/uploads/<%= livro.imagem %>" class="card-img-top" alt="Capa de <%= livro.titulo %>">
+    </a>
+    <div class="card-body p-2">
+      <h3 class="titulo-livro"><a href="/livro/<%= livro.id %>" class="link-livro"><%= livro.titulo %></a></h3>
+      <p class="autor mb-0"><%= livro.autor %></p>
+      <p class="editora mb-0"><%= livro.editora %></p>
+    </div>
+    <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
+      <span class="preco">R$ <%= livro.valor.toFixed(2).replace('.', ',') %></span>
+      <button class="btn btn-sebo btn-sm" aria-label="Adicionar <%= livro.titulo %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+    </div>
+  </div>
+</div>
