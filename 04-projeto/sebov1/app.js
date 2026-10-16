@@ -19,6 +19,10 @@ app.get('/livro', (req, res) => {
     res.render('livro-html.ejs');
 });
 
+app.get('/livros-categoria', (req, res) => {
+    res.render('livros-categoria.ejs');
+});
+
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
