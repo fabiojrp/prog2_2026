@@ -12,9 +12,12 @@ app.use('/', appIndex);
 const appAdmin = require('./rotas/rotas-admin');
 app.use('/admin', appAdmin);
 
-const appLivro = require('./rotas/rotas-livro');
-app.use('/livro', appLivro);
+// const appLivro = require('./rotas/rotas-livro');
+// app.use('/livro', appLivro);
 
+app.get('/livro', (req, res) => {
+    res.render('livro-html.ejs');
+});
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
