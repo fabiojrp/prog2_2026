@@ -1,5 +1,3 @@
-
-
   <%- include('partials/topo', { menu }) %>
 
   <main class="pt-4 pb-5">
@@ -32,7 +30,9 @@
             <p class="preco-detalhe mb-1">R$ <%= livro.valor.toFixed(2).replace('.', ',') %></p>
             <p class="small text-secondary mb-3"><i class="bi bi-info-circle me-1"></i>Livro usado</p>
             <div class="d-flex flex-wrap gap-2">
-              <button class="btn btn-sebo btn-lg"><i class="bi bi-cart-plus me-2"></i>Adicionar ao carrinho</button>
+              <form action="/carrinho/adicionar/<%= livro.id %>" method="POST" class="m-0">
+                <button type="submit" class="btn btn-sebo btn-lg"><i class="bi bi-cart-plus me-2"></i>Adicionar ao carrinho</button>
+              </form>
               <a href="/" class="btn btn-outline-secondary btn-lg">Continuar comprando</a>
             </div>
           </div>

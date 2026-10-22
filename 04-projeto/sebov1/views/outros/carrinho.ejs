@@ -1,0 +1,124 @@
+<%- include('partials/topo', { menu, titulo: 'Carrinho – Sebo Entrelinhas' }) %>
+
+  <main class="pt-4 pb-5">
+    <div class="container">
+
+      <!-- Caminho de navegação -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Início</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Carrinho</li>
+        </ol>
+      </nav>
+
+      <h1 class="h2 titulo-secao mb-4">Carrinho de compras</h1>
+
+      <% if (itens.length === 0) { %>
+
+        <!-- Carrinho vazio -->
+        <div class="text-center py-5">
+          <i class="bi bi-cart-x display-1 text-secondary"></i>
+          <p class="lead mt-3">Seu carrinho está vazio.</p>
+          <a href="/" class="btn btn-sebo btn-lg">Ver livros</a>
+        </div>
+
+      <% } else { %>
+
+        <div class="row g-4">
+
+          <!-- Itens -->
+          <div class="col-12 col-lg-8">
+            <% itens.forEach(function(item) { %>
+              <% const livro = item.livro; %>
+              <div class="card card-livro mb-3">
+                <div class="row g-0 align-items-center">
+                  <div class="col-3 col-sm-2">
+                    <a href="/livro/<%= livro.id %>">
+                      <img src="/uploads/<%= livro.imagem %>" class="img-fluid rounded-start" alt="Capa de <%= livro.titulo %>">
+                    </a>
+                  </div>
+                  <div class="col-9 col-sm-10">
+                    <div class="card-body">
+                      <div class="row align-items-center g-2">
+
+                        <!-- Dados do livro -->
+                        <div class="col-12 col-md-5">
+                          <h2 class="h6 mb-1">
+                            <a href="/livro/<%= livro.id %>" class="link-livro"><%= livro.titulo %></a>
+                          </h2>
+                          <p class="autor mb-0"><%= livro.autor %></p>
+                          <p class="editora mb-0"><%= livro.editora %></p>
+                          <p class="small text-secondary mb-0">Unitário: R$ <%= livro.valor.toFixed(2).replace('.', ',') %></p>
+                        </div>
+
+                        <!-- Quantidade -->
+                        <div class="col-6 col-md-3">
+                          <div class="d-flex align-items-center gap-2">
+                            <form action="/carrinho/diminuir/<%= livro.id %>" method="POST" class="m-0">
+                              <button type="submit" class="btn btn-outline-secondary btn-sm" aria-label="Diminuir quantidade"><i class="bi bi-dash"></i></button>
+                            </form>
+                            <span class="fw-semibold px-1"><%= item.quantidade %></span>
+                            <form action="/carrinho/adicionar/<%= livro.id %>" method="POST" class="m-0">
+                              <button type="submit" class="btn btn-outline-secondary btn-sm" aria-label="Aumentar quantidade"><i class="bi bi-plus"></i></button>
+                            </form>
+                          </div>
+                        </div>
+
+                        <!-- Valor parcial e remover -->
+                        <div class="col-6 col-md-4 text-end">
+                          <p class="preco mb-2">R$ <%= item.subtotal.toFixed(2).replace('.', ',') %></p>
+                          <form action="/carrinho/remover/<%= livro.id %>" method="POST" class="m-0">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                              <i class="bi bi-trash me-1"></i>Remover
+                            </button>
+                          </form>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+
+            <form action="/carrinho/limpar" method="POST">
+              <button type="submit" class="btn btn-link text-secondary p-0">
+                <i class="bi bi-x-circle me-1"></i>Esvaziar carrinho
+              </button>
+            </form>
+          </div>
+
+          <!-- Resumo -->
+          <div class="col-12 col-lg-4">
+            <div class="box-compra">
+              <h2 class="h5 mb-3">Resumo do pedido</h2>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span>Itens</span>
+                <span><%= totalItens %></span>
+              </div>
+
+              <hr>
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold">Total</span>
+                <span class="preco-detalhe">R$ <%= total.toFixed(2).replace('.', ',') %></span>
+              </div>
+
+              <div class="d-grid gap-2">
+                <a href="/checkout" class="btn btn-sebo btn-lg">
+                  <i class="bi bi-bag-check me-2"></i>Finalizar compra
+                </a>
+                <a href="/" class="btn btn-outline-secondary">Continuar comprando</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      <% } %>
+
+    </div>
+  </main>
+
+<%- include('partials/rodape') %>

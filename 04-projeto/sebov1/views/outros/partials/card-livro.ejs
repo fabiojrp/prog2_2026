@@ -11,7 +11,9 @@
     </div>
     <div class="card-footer bg-white border-0 p-2 d-flex justify-content-between align-items-center">
       <span class="preco">R$ <%= livro.valor.toFixed(2).replace('.', ',') %></span>
-      <button class="btn btn-sebo btn-sm" aria-label="Adicionar <%= livro.titulo %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+      <form action="/carrinho/adicionar/<%= livro.id %>" method="POST" class="m-0">
+        <button type="submit" class="btn btn-sebo btn-sm" aria-label="Adicionar <%= livro.titulo %> ao carrinho"><i class="bi bi-cart-plus"></i></button>
+      </form>
     </div>
   </div>
 </div>

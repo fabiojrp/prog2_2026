@@ -41,7 +41,7 @@ appLivro.get('/:id', (req, res) => {
                                 slug: gerarSlug(c.nome)
                             }));
 
-                            res.render('livros/livro', {
+                            res.render('outros/livro', {
                                 livro,
                                 relacionados,
                                 menu,
