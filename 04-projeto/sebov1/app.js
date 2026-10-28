@@ -30,9 +30,6 @@ app.use('/admin', appAdmin);
 const appLivro = require('./rotas/rotas-livro');
 app.use('/livro', appLivro);
 
-// app.get('/livro', (req, res) => {
-//     res.render('livro-html.ejs');
-// });
 
 const appCarrinho = require('./rotas/rotas-carrinho');
 app.use('/carrinho', appCarrinho);
