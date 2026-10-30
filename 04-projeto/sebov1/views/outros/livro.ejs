@@ -1,4 +1,4 @@
-  <%- include('partials/topo', { menu }) %>
+  <%- include('partials/topo', { categorias }) %>
 
   <main class="pt-4 pb-5">
     <div class="container">
@@ -7,7 +7,7 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Início</a></li>
-          <li class="breadcrumb-item"><a href="/#<%= slugCategoria %>"><%= livro.categoria %></a></li>
+          <li class="breadcrumb-item"><a href="/#<%= livro.categoria %>"><%= livro.categoria %></a></li>
           <li class="breadcrumb-item active" aria-current="page"><%= livro.titulo %></li>
         </ol>
       </nav>
@@ -58,18 +58,17 @@
     </div>
   </main>
 
-  <% if (relacionados.length > 0) { %>
-  <!-- Mais livros da mesma categoria -->
+  <!-- <% //if (relacionados.length > 0) { %>
   <section class="py-5 bg-white">
     <div class="container">
-      <h2 class="titulo-secao mb-4">Mais em <%= livro.categoria %></h2>
+      <h2 class="titulo-secao mb-4">Mais em <%= //livro.categoria %></h2>
       <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-6 g-3">
-        <% relacionados.forEach(function(outro) { %>
-          <%- include('partials/card-livro', { livro: outro }) %>
-        <% }); %>
+        <% //relacionados.forEach(function(outro) { %>
+          <%- //include('partials/card-livro', { livro: outro }) %>
+        <% //}); %>
       </div>
     </div>
   </section>
-  <% } %>
+  <% //} %> -->
 
   <%- include('partials/rodape') %>

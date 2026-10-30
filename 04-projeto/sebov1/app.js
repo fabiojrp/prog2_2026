@@ -7,7 +7,7 @@ app.use(express.static('public'));
 const session = require('express-session');
 
 app.use(session({
-    secret: 'sebo-entrelinhas-segredo',
+    secret: 'minha-chave-secreta',
     resave: false,
     saveUninitialized: false
 }));

@@ -1,7 +1,6 @@
 const express = require('express');
 const appCarrinho = express();
 const db = require('../banco/database');
-const gerarSlug = require('../util/slug');
 
 // O carrinho na sessão é uma lista de itens: [{ id: 3, quantidade: 2 }, ...]
 function obterCarrinho(req) {
@@ -42,12 +41,7 @@ appCarrinho.get('/', (req, res) => {
                 if (erro) {
                     console.log(erro.message);
                     return res.status(500).send('Erro ao consultar categorias.');
-                }
-
-                const menu = categorias.map(c => ({
-                    nome: c.nome,
-                    slug: gerarSlug(c.nome)
-                }));
+                }         
 
                 // Junta cada livro com a sua quantidade e calcula o valor parcial
                 const itens = [];
@@ -65,7 +59,7 @@ appCarrinho.get('/', (req, res) => {
                 const total = itens.reduce((soma, item) => soma + item.subtotal, 0);
                 const totalItens = itens.reduce((soma, item) => soma + item.quantidade, 0);
 
-                res.render('outros/carrinho', { itens, total, totalItens, menu });
+                res.render('outros/carrinho', { itens, total, totalItens, categorias });
             }
         );
     });
@@ -87,10 +81,7 @@ appCarrinho.post('/adicionar/:id', (req, res) => {
                 console.log(erro.message);
                 return res.status(500).send('Erro ao adicionar ao carrinho.');
             }
-            if (!livro) {
-                return res.status(404).send('Livro não encontrado.');
-            }
-
+           
             const carrinho = obterCarrinho(req);
             const item = carrinho.find(i => i.id === id);
 

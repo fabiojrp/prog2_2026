@@ -6,21 +6,41 @@ const gerarSlug = require('../util/slug');
 const MAX_RELACIONADOS = 6;
 
 appLivro.get('/', (req, res) => {
-    res.render('outros/livro-html');
+    db.all(
+        'SELECT * FROM categorias',
+        [],
+        function (erro, categorias) {
+            if (erro) {
+                console.log(erro.message);
+                return res.status(500).send('Erro ao consultar categorias.');
+            }
+            res.render('outros/livro-html', {categorias});
+        }
+    );
 });
 
-// appLivro.get('/:id', (req, res) => {
-//     db.get(
-//         'SELECT * FROM livros WHERE id = ?',
-//         [req.params.id],
-//         function (erro, livro){
-//             if (erro){
-//                 return res.send('Erro ao consultar livro.');                
-//             }
-//             res.render('outros/livro-html', {livro});
-//         }
-//     )
-// });
+appLivro.get('/:id', (req, res) => {
+    db.get(
+        'SELECT * FROM livros WHERE id = ?',
+        [req.params.id],
+        function (erro, livro){
+            if (erro){
+                return res.send('Erro ao consultar livro.');                
+            }
+             db.all(
+                'SELECT * FROM categorias',
+                [],
+                function (erro, categorias) {
+                    if (erro) {
+                        console.log(erro.message);
+                        return res.status(500).send('Erro ao consultar categorias.');
+                    }
+                    res.render('outros/livro', {livro, categorias});
+                }
+            )
+        }
+    )
+});
 
 
 // appLivro.get('/:id', (req, res) => {

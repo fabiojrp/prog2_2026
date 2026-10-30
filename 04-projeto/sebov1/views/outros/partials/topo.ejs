@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
   <link href="/css/estilo-site.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <!-- TOPO (espera a variável "menu": [{ nome, slug }]) -->
 <nav class="navbar navbar-expand-lg navbar-sebo sticky-top">
   <div class="container">
@@ -29,8 +29,8 @@
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav me-auto ms-lg-4">
         <li class="nav-item"><a class="nav-link" href="/#destaques">Destaques</a></li>
-        <% menu.forEach(item => { %>
-            <li class="nav-item"><a class="nav-link" href="/#<%= item.slug %>"><%= item.nome %></a></li>
+        <% categorias.forEach(item => { %>
+            <li class="nav-item"><a class="nav-link" href="/#<%= item.nome %>"><%= item.nome %></a></li>
           <% }); %>
         </ul>
 
