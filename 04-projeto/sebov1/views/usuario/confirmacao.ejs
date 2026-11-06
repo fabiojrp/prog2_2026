@@ -1,4 +1,4 @@
-<%- include('../livros/partials/header', { categorías, titulo }) %>
+<%- include('../admin/partials/header', { categorías, titulo }) %>
 
   <main class="pt-4 pb-5">
     <div class="container">
@@ -52,11 +52,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% itens.forEach(function(item) { %>
+                      <% itens.forEach(function(item) { 
+                        const livro = item.livro || {};
+                        %>
                         <tr>
-                          <td><%= item.titulo %></td>
+                          <td><%= livro.titulo %></td>
                           <td class="text-center"><%= item.quantidade || 1 %></td>
-                          <td class="text-end">R$ <%= (Number(item.valor) * Number(item.quantidade || 1)).toFixed(2).replace('.', ',') %></td>
+                          <td class="text-end">R$ <%= (Number(livro.valor) * Number(item.quantidade || 1)).toFixed(2).replace('.', ',') %></td>
                         </tr>
                       <% }); %>
                     </tbody>
@@ -72,7 +74,7 @@
             <div class="card border-0 shadow-sm">
               <div class="card-body p-4">
                 <p class="mb-1 text-secondary">Valor total</p>
-                <p class="preco-detalhe mb-4">R$ <%= total.toFixed(2).replace('.', ',') %></p>
+                <p class="preco-detalhe mb-4">R$ <%= itens.total.toFixed(2).replace('.', ',') %></p>
 
                 <h2 class="h5 titulo-secao mb-3">Forma de pagamento</h2>
 
@@ -107,4 +109,4 @@
     </div>
   </main>
 
-<%- include('../livros/partials/footer') %>
+<%- include('../admin/partials/footer') %>

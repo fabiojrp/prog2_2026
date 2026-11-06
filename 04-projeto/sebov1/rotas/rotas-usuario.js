@@ -124,7 +124,7 @@ appUsuario.post('/login', (req, res) => {
             req.session.regenerate(function () {
                 req.session.carrinho = carrinho;
                 req.session.usuario = { id: usuario.id, nome: usuario.nome };
-                res.redirect('/compra/confirmacao');
+                res.redirect('/usuario/compra/confirmacao');
             });
         }
     );
@@ -150,18 +150,17 @@ appUsuario.get('/compra/confirmacao', exigirLogin, (req, res) => {
 
             // Espera: req.session.carrinho = [{ id, titulo, valor, quantidade }]
             const itens = req.session.carrinho || [];
-            const total = itens.reduce(
-                (soma, item) => soma + Number(item.valor) * Number(item.quantidade || 1),
-                0
-            );
+            // const total = itens.reduce(
+            //     (soma, item) => soma + Number(item.valor) * Number(item.quantidade || 1),
+            //     0
+            // );
 
             carregarMenu(res, (categorías) => {
                 res.render('usuario/confirmacao', {
                     categorías,
                     titulo: 'Confirmação da compra',
                     usuario,
-                    itens,
-                    total
+                    itens
                 });
             });
         }

@@ -58,6 +58,7 @@ appCarrinho.get('/', (req, res) => {
 
                 const total = itens.reduce((soma, item) => soma + item.subtotal, 0);
                 const totalItens = itens.reduce((soma, item) => soma + item.quantidade, 0);
+                //itens.push({ total, totalItens });
 
                 res.render('outros/carrinho', { itens, total, totalItens, categorias });
             }
