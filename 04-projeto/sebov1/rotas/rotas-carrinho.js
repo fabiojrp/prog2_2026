@@ -1,6 +1,6 @@
 const express = require('express');
 const appCarrinho = express();
-const db = require('../banco/database');
+const db = require('../banco/database-bkp');
 
 // O carrinho na sessão é uma lista de itens: [{ id: 3, quantidade: 2 }, ...]
 function obterCarrinho(req) {

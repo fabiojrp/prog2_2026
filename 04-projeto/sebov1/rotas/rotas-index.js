@@ -1,6 +1,6 @@
 const express = require('express');
 const appIndex = express();
-const db = require('../banco/database');
+const db = require('../banco/database-bkp');
 
 appIndex.get('/', (req, res) => {
     

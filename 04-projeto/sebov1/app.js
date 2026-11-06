@@ -7,10 +7,14 @@ app.use(express.static('public'));
 const session = require('express-session');
 
 app.use(session({
-    secret: 'minha-chave-secreta',
+    secret: 'troque-este-segredo',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { maxAge: 1000 * 60 * 60 * 2 } // 2 horas
 }));
+
+const appUsuario = require('./rotas/rotas-usuario');
+app.use('/usuario', appUsuario);
 
 // disponibiliza a quantidade de itens para o selo do carrinho em todas as views
 app.use((req, res, next) => {

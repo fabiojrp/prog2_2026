@@ -1,6 +1,6 @@
 const express = require('express');
 const appLivro = express();
-const db = require('../banco/database');
+const db = require('../banco/database-bkp');
 const gerarSlug = require('../util/slug');
 
 const MAX_RELACIONADOS = 6;

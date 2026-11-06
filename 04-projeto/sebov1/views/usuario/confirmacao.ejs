@@ -1,0 +1,110 @@
+<%- include('../livros/partials/header', { categorías, titulo }) %>
+
+  <main class="pt-4 pb-5">
+    <div class="container">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Início</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Confirmação da compra</li>
+        </ol>
+      </nav>
+
+      <h1 class="h2 titulo-secao mb-4">Confirmação da compra</h1>
+
+      <% if (itens.length === 0) { %>
+        <div class="alert alert-warning">
+          <i class="bi bi-cart-x me-1"></i>Seu carrinho está vazio.
+          <a href="/" class="alert-link">Continuar comprando</a>
+        </div>
+      <% } else { %>
+
+      <form action="/compra/finalizar" method="POST">
+        <div class="row g-4">
+
+          <!-- Dados do usuário e itens -->
+          <div class="col-12 col-lg-8">
+
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-body p-4">
+                <h2 class="h5 titulo-secao mb-3">Seus dados</h2>
+                <dl class="row mb-0">
+                  <dt class="col-4 col-sm-3">Nome</dt>
+                  <dd class="col-8 col-sm-9"><%= usuario.nome %></dd>
+                  <dt class="col-4 col-sm-3">E-mail</dt>
+                  <dd class="col-8 col-sm-9"><%= usuario.email %></dd>
+                  <dt class="col-4 col-sm-3">CPF</dt>
+                  <dd class="col-8 col-sm-9"><%= usuario.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') %></dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h2 class="h5 titulo-secao mb-3">Itens do pedido</h2>
+                <div class="table-responsive">
+                  <table class="table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Livro</th>
+                        <th class="text-center">Qtd.</th>
+                        <th class="text-end">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% itens.forEach(function(item) { %>
+                        <tr>
+                          <td><%= item.titulo %></td>
+                          <td class="text-center"><%= item.quantidade || 1 %></td>
+                          <td class="text-end">R$ <%= (Number(item.valor) * Number(item.quantidade || 1)).toFixed(2).replace('.', ',') %></td>
+                        </tr>
+                      <% }); %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Total e pagamento -->
+          <div class="col-12 col-lg-4">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <p class="mb-1 text-secondary">Valor total</p>
+                <p class="preco-detalhe mb-4">R$ <%= total.toFixed(2).replace('.', ',') %></p>
+
+                <h2 class="h5 titulo-secao mb-3">Forma de pagamento</h2>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="pagamento" id="pg-pix" value="pix" checked>
+                  <label class="form-check-label" for="pg-pix"><i class="bi bi-qr-code me-2"></i>Pix</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="pagamento" id="pg-credito" value="credito">
+                  <label class="form-check-label" for="pg-credito"><i class="bi bi-credit-card me-2"></i>Cartão de crédito</label>
+                </div>
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="radio" name="pagamento" id="pg-debito" value="debito">
+                  <label class="form-check-label" for="pg-debito"><i class="bi bi-credit-card-2-front me-2"></i>Cartão de débito</label>
+                </div>
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="radio" name="pagamento" id="pg-boleto" value="boleto">
+                  <label class="form-check-label" for="pg-boleto"><i class="bi bi-upc me-2"></i>Boleto bancário</label>
+                </div>
+
+                <button type="submit" class="btn btn-ocre btn-lg w-100">Confirmar compra</button>
+                <a href="/" class="btn btn-outline-secondary w-100 mt-2">Continuar comprando</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <% } %>
+
+    </div>
+  </main>
+
+<%- include('../livros/partials/footer') %>
