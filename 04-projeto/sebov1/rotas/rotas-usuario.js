@@ -51,7 +51,7 @@ appUsuario.post('/cadastro', (req, res) => {
     if (!nome || !email || !senha) {
         return mostrarErro('Preencha todos os campos.');
     }
- 
+
     if (senha.length < 6) {
         return mostrarErro('A senha deve ter pelo menos 6 caracteres.');
     }
@@ -120,11 +120,19 @@ appUsuario.post('/login', (req, res) => {
             }
 
             // Nova sessão após o login (mantém o carrinho)
-            const carrinho = req.session.carrinho;
+            // const carrinho = req.session.carrinho;
+            // req.session.regenerate(function () {
+            //     req.session.carrinho = carrinho;
+            //     req.session.usuario = { id: usuario.id, nome: usuario.nome };
+            //     res.redirect('/usuario/compra/confirmacao');
+            // });
+            const { cookie, ...dadosSessao } = req.session;
             req.session.regenerate(function () {
-                req.session.carrinho = carrinho;
+                Object.assign(req.session, dadosSessao);
                 req.session.usuario = { id: usuario.id, nome: usuario.nome };
-                res.redirect('/usuario/compra/confirmacao');
+                req.session.save(function () {
+                    res.redirect('/usuario/compra/confirmacao');
+                });
             });
         }
     );
@@ -148,19 +156,14 @@ appUsuario.get('/compra/confirmacao', exigirLogin, (req, res) => {
                 return res.redirect('/login');
             }
 
-            // Espera: req.session.carrinho = [{ id, titulo, valor, quantidade }]
-            const itens = req.session.carrinho || [];
-            // const total = itens.reduce(
-            //     (soma, item) => soma + Number(item.valor) * Number(item.quantidade || 1),
-            //     0
-            // );
+            const total = req.session.totalfinal || 0; // Recupera o total final da sessão, ou 0 se não estiver definido            
 
-            carregarMenu(res, (categorías) => {
+            carregarMenu(res, (categorias) => {
                 res.render('usuario/confirmacao', {
-                    categorías,
+                    categorias,
                     titulo: 'Confirmação da compra',
                     usuario,
-                    itens
+                    total
                 });
             });
         }

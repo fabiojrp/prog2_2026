@@ -1,6 +1,6 @@
 const express = require('express');
 const appAdmin = express();
-const db = require('../banco/database-bkp');
+const db = require('../banco/database');
 const upload = require('../util/imagens');
 
 

@@ -13,9 +13,6 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 2 } // 2 horas
 }));
 
-const appUsuario = require('./rotas/rotas-usuario');
-app.use('/usuario', appUsuario);
-
 // disponibiliza a quantidade de itens para o selo do carrinho em todas as views
 app.use((req, res, next) => {
     const carrinho = req.session.carrinho || [];
@@ -23,6 +20,8 @@ app.use((req, res, next) => {
     next();
 });
 
+const appUsuario = require('./rotas/rotas-usuario');
+app.use('/usuario', appUsuario);
 
 const appIndex = require('./rotas/rotas-index');
 app.use('/', appIndex);
@@ -34,15 +33,8 @@ app.use('/admin', appAdmin);
 const appLivro = require('./rotas/rotas-livro');
 app.use('/livro', appLivro);
 
-
 const appCarrinho = require('./rotas/rotas-carrinho');
 app.use('/carrinho', appCarrinho);
-
-
-
-app.get('/livros-categoria', (req, res) => {
-    res.render('livros-categoria.ejs');
-});
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);

@@ -1,4 +1,4 @@
-<%- include('../admin/partials/header', { categorías, titulo }) %>
+<%- include('../outros/partials/topo', { categorias, titulo }) %>
 
   <main class="pt-4 pb-5">
     <div class="container">
@@ -11,13 +11,6 @@
       </nav>
 
       <h1 class="h2 titulo-secao mb-4">Confirmação da compra</h1>
-
-      <% if (itens.length === 0) { %>
-        <div class="alert alert-warning">
-          <i class="bi bi-cart-x me-1"></i>Seu carrinho está vazio.
-          <a href="/" class="alert-link">Continuar comprando</a>
-        </div>
-      <% } else { %>
 
       <form action="/compra/finalizar" method="POST">
         <div class="row g-4">
@@ -37,35 +30,7 @@
                   <dd class="col-8 col-sm-9"><%= usuario.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') %></dd>
                 </dl>
               </div>
-            </div>
-
-            <div class="card border-0 shadow-sm">
-              <div class="card-body p-4">
-                <h2 class="h5 titulo-secao mb-3">Itens do pedido</h2>
-                <div class="table-responsive">
-                  <table class="table align-middle mb-0">
-                    <thead>
-                      <tr>
-                        <th>Livro</th>
-                        <th class="text-center">Qtd.</th>
-                        <th class="text-end">Valor</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% itens.forEach(function(item) { 
-                        const livro = item.livro || {};
-                        %>
-                        <tr>
-                          <td><%= livro.titulo %></td>
-                          <td class="text-center"><%= item.quantidade || 1 %></td>
-                          <td class="text-end">R$ <%= (Number(livro.valor) * Number(item.quantidade || 1)).toFixed(2).replace('.', ',') %></td>
-                        </tr>
-                      <% }); %>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+            </div>           
 
           </div>
 
@@ -74,7 +39,7 @@
             <div class="card border-0 shadow-sm">
               <div class="card-body p-4">
                 <p class="mb-1 text-secondary">Valor total</p>
-                <p class="preco-detalhe mb-4">R$ <%= itens.total.toFixed(2).replace('.', ',') %></p>
+                <p class="preco-detalhe mb-4">R$ <%= total.toFixed(2).replace('.', ',') %></p>
 
                 <h2 class="h5 titulo-secao mb-3">Forma de pagamento</h2>
 
@@ -104,9 +69,7 @@
         </div>
       </form>
 
-      <% } %>
-
     </div>
   </main>
 
-<%- include('../admin/partials/footer') %>
+<%- include('../outros/partials/rodape') %>

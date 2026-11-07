@@ -1,6 +1,6 @@
 const express = require('express');
 const appCarrinho = express();
-const db = require('../banco/database-bkp');
+const db = require('../banco/database');
 
 // O carrinho na sessão é uma lista de itens: [{ id: 3, quantidade: 2 }, ...]
 function obterCarrinho(req) {
@@ -58,7 +58,8 @@ appCarrinho.get('/', (req, res) => {
 
                 const total = itens.reduce((soma, item) => soma + item.subtotal, 0);
                 const totalItens = itens.reduce((soma, item) => soma + item.quantidade, 0);
-                
+
+                req.session.totalfinal = total; // Armazena o total final na sessão para uso posterior
 
                 res.render('outros/carrinho', { itens, total, totalItens, categorias });
             }
