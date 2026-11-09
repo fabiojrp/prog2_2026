@@ -119,13 +119,6 @@ appUsuario.post('/login', (req, res) => {
                 return mostrarErro('E-mail ou senha inválidos.');
             }
 
-            // Nova sessão após o login (mantém o carrinho)
-            // const carrinho = req.session.carrinho;
-            // req.session.regenerate(function () {
-            //     req.session.carrinho = carrinho;
-            //     req.session.usuario = { id: usuario.id, nome: usuario.nome };
-            //     res.redirect('/usuario/compra/confirmacao');
-            // });
             const { cookie, ...dadosSessao } = req.session;
             req.session.regenerate(function () {
                 Object.assign(req.session, dadosSessao);
@@ -172,11 +165,13 @@ appUsuario.get('/compra/confirmacao', exigirLogin, (req, res) => {
 
 // Provisório: próxima etapa será gravar o pedido
 appUsuario.post('/compra/finalizar', exigirLogin, (req, res) => {
-    const pagamento = req.body.pagamento;
-    if (!FORMAS_PAGAMENTO.includes(pagamento)) {
-        return res.redirect('/compra/confirmacao');
-    }
-    res.send('Forma de pagamento escolhida: ' + pagamento + ' (finalização do pedido em construção).');
+   
+    carregarMenu(res, (categorias) => {
+        res.render('usuario/finalizacao', {
+            categorias,
+            titulo: 'Compra finalizada'
+        });
+    });
 });
 
 module.exports = appUsuario;

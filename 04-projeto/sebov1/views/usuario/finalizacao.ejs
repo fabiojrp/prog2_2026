@@ -1,0 +1,25 @@
+<%- include('../outros/partials/topo', { titulo: 'Compra finalizada' }) %>
+
+    <main class="pt-4 pb-5">
+        <div class="container">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Início</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Compra finalizada</li>
+                </ol>
+            </nav>
+
+            <!-- Mensagem de sucesso -->
+            <div class="text-center py-4">
+                <i class="bi bi-check-circle-fill text-success" style="font-size: 3.5rem;"></i>
+                <h1 class="h2 mt-3 mb-2">Compra finalizada!</h1>
+                <p class="text-secondary mb-1">Obrigado, <strong>Nome do Cliente</strong>. Recebemos o seu pedido.</p>
+                <p class="mb-0">Pedido <strong>nº 000123</strong> &middot; 09/11/2026</p>
+            </div>
+
+
+        </div>
+    </main>
+
+<%- include('../outros/partials/rodape') %>
